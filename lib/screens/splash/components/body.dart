@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app_ui/constants.dart';
-import 'package:shop_app_ui/size_config.dart';
+import 'package:shop_app_ui/screens/splash/components/splash_content.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -10,6 +10,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
       "text": "Welcome to Tokoto, Let's shoop!",
@@ -34,6 +35,11 @@ class _BodyState extends State<Body> {
             Expanded(
               flex: 3,
               child: PageView.builder(
+                onPageChanged: (value) {
+                  setState(() {
+                    currentPage = value;
+                  });
+                },
                 itemCount: splashData.length,
                 itemBuilder: (context, index) => SplashContent(
                   text: splashData[index]['text'],
@@ -41,50 +47,35 @@ class _BodyState extends State<Body> {
                 ),
               ),
             ),
-            const Expanded(
+            Expanded(
               flex: 2,
-              child: SizedBox(),
+              child: Column(
+                children: [
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        splashData.length,
+                        (index) => buildDot(index: index),
+                      ))
+                ],
+              ),
             ),
           ],
         ),
       ),
     );
   }
-}
 
-class SplashContent extends StatelessWidget {
-  const SplashContent({
-    this.text,
-    this.img,
-    super.key,
-  });
-  final String? text;
-  final String? img;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          flex: 3,
-          child: Column(
-            children: [
-              const Spacer(), // 빈공간 생성
-              Text(
-                "TOKOTO",
-                style: TextStyle(fontSize: getProportionateScreenHeight(36), color: kPrimaryColor, fontWeight: FontWeight.bold),
-              ),
-              Text(text!),
-              const Spacer(flex: 2),
-              Image.asset(
-                img!,
-                height: getProportionateScreenHeight(265),
-                width: getProportionateScreenWidth(235),
-              )
-            ],
-          ),
-        ),
-      ],
+  AnimatedContainer buildDot({required int index}) {
+    return AnimatedContainer(
+      duration: kAnimationDuration,
+      margin: const EdgeInsets.only(right: 5),
+      height: 6,
+      width: currentPage == index ? 20 : 6,
+      decoration: BoxDecoration(
+        color: currentPage == index ? kPrimaryColor : const Color(0xFFD8D8D8),
+        borderRadius: BorderRadius.circular(3),
+      ),
     );
   }
 }
