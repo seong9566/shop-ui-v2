@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app_ui/constants.dart';
 import 'package:shop_app_ui/routs.dart';
+import 'package:shop_app_ui/theme.dart';
 
 import 'screens/splash/splash_screen.dart';
 
@@ -15,19 +15,10 @@ class ShopAppUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        fontFamily: "Muli",
-        textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: kTextColor),
-          bodyMedium: TextStyle(color: kTextColor),
-        ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: theme(),
       //route
       initialRoute: SplashScreen.routeName,
       routes: routes,
-      //home: const SplashScreen(),
     );
   }
 }
