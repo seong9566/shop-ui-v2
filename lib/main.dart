@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app_ui/constants.dart';
+import 'package:shop_app_ui/routs.dart';
 
 import 'screens/splash/splash_screen.dart';
 
@@ -23,7 +24,10 @@ class ShopAppUI extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const SplashScreen(),
+      //route
+      initialRoute: SplashScreen.routeName,
+      routes: routes,
+      //home: const SplashScreen(),
     );
   }
 }

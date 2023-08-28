@@ -3,6 +3,7 @@ import 'package:shop_app_ui/screens/splash/components/body.dart';
 import 'package:shop_app_ui/size_config.dart';
 
 class SplashScreen extends StatelessWidget {
+  static String routeName = "/splash";
   const SplashScreen({super.key});
 
   @override

@@ -3,6 +3,8 @@ import 'package:shop_app_ui/constants.dart';
 import 'package:shop_app_ui/screens/splash/components/splash_content.dart';
 import 'package:shop_app_ui/size_config.dart';
 
+import '../../../components/default_button.dart';
+
 class Body extends StatefulWidget {
   const Body({super.key});
 
@@ -89,37 +91,6 @@ class _BodyState extends State<Body> {
       decoration: BoxDecoration(
         color: currentPage == index ? kPrimaryColor : const Color(0xFFD8D8D8),
         borderRadius: BorderRadius.circular(3),
-      ),
-    );
-  }
-}
-
-class DefaultButton extends StatelessWidget {
-  const DefaultButton({
-    super.key,
-    this.text,
-    this.press,
-  });
-  final String? text;
-  final Function()? press;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: getProportionateScreenHeight(56),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          backgroundColor: kPrimaryColor,
-        ),
-        onPressed: press,
-        child: Text(
-          text!,
-          style: TextStyle(fontSize: getProportionateScreenWidth(18), color: Colors.white),
-        ),
       ),
     );
   }
