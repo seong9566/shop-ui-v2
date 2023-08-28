@@ -8,8 +8,26 @@ ThemeData theme() {
     scaffoldBackgroundColor: Colors.white,
     fontFamily: "Muli",
     textTheme: textTheme(),
+    inputDecorationTheme: inputDecorationTheme(),
     appBarTheme: appBarTheme(),
     visualDensity: VisualDensity.adaptivePlatformDensity,
+  );
+}
+
+InputDecorationTheme inputDecorationTheme() {
+  OutlineInputBorder outlineInputBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(28),
+    borderSide: const BorderSide(color: kTextColor),
+    gapPadding: 10,
+  );
+  return InputDecorationTheme(
+    contentPadding: const EdgeInsets.symmetric(
+      horizontal: 42,
+      vertical: 20,
+    ),
+    enabledBorder: outlineInputBorder,
+    focusedBorder: outlineInputBorder,
+    border: outlineInputBorder,
   );
 }
 
