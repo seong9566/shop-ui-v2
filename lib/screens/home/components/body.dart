@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app_ui/screens/home/components/popular_products.dart';
+import 'package:shop_app_ui/screens/home/components/special_offers.dart';
 import 'package:shop_app_ui/size_config.dart';
 
+import 'categories.dart';
+import 'discount_banner.dart';
 import 'home_header.dart';
 
 class Body extends StatelessWidget {
@@ -14,43 +18,16 @@ class Body extends StatelessWidget {
           children: [
             SizedBox(height: getProportionateScreenWidth(20)),
             const HomeHeader(),
-            SizedBox(height: getProportionateScreenWidth(20)),
+            SizedBox(height: getProportionateScreenWidth(30)),
             const DisCountBanner(),
+            SizedBox(height: getProportionateScreenWidth(30)),
+            const Categories(),
+            SizedBox(height: getProportionateScreenWidth(30)),
+            const SpecialOffers(),
+            SizedBox(height: getProportionateScreenWidth(30)),
+            const PopularProducts()
           ],
         ),
-      ),
-    );
-  }
-}
-
-class DisCountBanner extends StatelessWidget {
-  const DisCountBanner({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //margin : 위젯 외부 여백
-      margin: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-      padding: EdgeInsets.symmetric(
-        horizontal: getProportionateScreenWidth(20),
-        vertical: getProportionateScreenWidth(20),
-      ),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: const Color(0xFF4A3298),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: const Text.rich(
-        TextSpan(text: "A Summer Surpise\n", style: TextStyle(color: Colors.white), children: [
-          TextSpan(
-              text: "Cashback 20%",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              )),
-        ]),
       ),
     );
   }
