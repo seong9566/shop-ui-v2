@@ -36,7 +36,7 @@ class ProductCard extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             SizedBox(
-              height: getProportionateScreenHeight(42),
+              height: getProportionateScreenHeight(48),
               child: Text(
                 product.title,
                 style: const TextStyle(color: Colors.black),

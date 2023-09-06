@@ -12,6 +12,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
