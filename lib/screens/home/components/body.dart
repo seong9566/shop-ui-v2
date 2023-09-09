@@ -12,6 +12,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //screen이 late로 선언되어 있기 때문에 build가 실행 전 Media의 사이즈가 한번 초기화 되어야한다.
     SizeConfig().init(context);
     return SafeArea(
       child: SingleChildScrollView(
